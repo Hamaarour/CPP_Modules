@@ -11,25 +11,23 @@
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
 #include <iostream>
 #include "Contact.hpp"
 class Phonebook
 {
-    private:
-        Contact contacts[8];
-        int     index;
-    public:
-        Phonebook();
-        ~Phonebook();
-        void    add(void);
-        void    search(void);
-        void    print(void) const;
+private:
+    Contact _contact[8];
+    int _index;
 
-
-        
-
+public:
+    Phonebook();
+    ~Phonebook();
+    void add(void);
+    void search(void);
+    void print() const;
+    void menu() const;
 };
 
 #endif

@@ -12,15 +12,9 @@
 
 #include "Contact.hpp"
 
-Contact::Contact(void)
-{
-    std::cout << "Contact Constructor called" << std::endl;
-}
+Contact::Contact(void){}
 
-Contact::~Contact(void)
-{
-    std::cout << "Contact Destructor called" << std::endl;
-}
+Contact::~Contact(void){}
 
 std::string Contact::get_first_name(void) const
 {
@@ -42,7 +36,7 @@ std::string Contact::get_phone_number(void) const
     return (this->_phone_number);
 }
 
-std::string Contact::get_darkset_secret(void) const
+std::string Contact::get_darkest_secret(void) const
 {
     return (this->_darkest_secret);
 }
@@ -79,13 +73,13 @@ std::string my_trim(const std::string &str)
     return (str.substr(first, last - first + 1));
 }
 
-void Contact::set_first_name(std::string first_name)
+int Contact::set_first_name(std::string first_name)
 {
     first_name = my_trim(first_name);
     if (first_name.empty())
     {
         std::cout << "first name is empty" << std::endl;
-        return;
+        return 1;
     }
     else
     {
@@ -94,25 +88,26 @@ void Contact::set_first_name(std::string first_name)
             if (!std::isalpha(first_name[i]) || !std::isspace(first_name[i]))
             {
                 std::cout << "first name is not valid" << std::endl;
-                return;
+                return 1;
             }
         }
-        if (last_name.length > 10)
+        if (first_name.length() > 10)
         {
-            last_name[9] = '.';
-            last_name.erase(10, last_name.length() - 10);
+            first_name[9] = '.';
+            first_name.erase(10, first_name.length() - 10);
         }
         this->_first_name = first_name;
     }
+    return 0;
 }
 
-void Contact::set_last_name(std::string last_name)
+int Contact::set_last_name(std::string last_name)
 {
     last_name = my_trim(last_name);
     if (last_name.empty())
     {
         std::cout << "first name is empty" << std::endl;
-        return;
+        return 1;
     }
     else
     {
@@ -121,25 +116,26 @@ void Contact::set_last_name(std::string last_name)
             if (!isalpha(last_name[i]) || !isspace(last_name[i]))
             {
                 std::cout << "last name is not valid" << std::endl;
-                return;
+                return 1;
             }
         }
         if (last_name.length() > 10)
         {
             last_name[9] = '.';
-            last_name.erase(10, last_name.lenght() - 10);
+            last_name.erase(10, last_name.length() - 10);
         }
         this->_last_name = last_name;
     }
+    return 0;
 }
 
-void Contact::set_nickname(std::string nickname)
+int Contact::set_nickname(std::string nickname)
 {
     nickname = my_trim(nickname);
     if (nickname.empty())
     {
         std::cout << "nickname is empty" << std::endl;
-        return;
+        return 1;
     }
     else
     {
@@ -148,25 +144,26 @@ void Contact::set_nickname(std::string nickname)
             if (!isalpha(nickname[i]) || !isspace(nickname[i]))
             {
                 std::cout << "nickname is not valid" << std::endl;
-                return;
+                return 1;
             }
         }
         if (nickname.length() > 10)
         {
             nickname[9] = '.';
-            nickname.erase(10, nickname.lenght() - 10);
+            nickname.erase(10, nickname.length() - 10);
         }
-        this->_nickname = nickname;
     }
+    this->_nickname = nickname;
+    return 0;
 }
 
-void Contact::set_phone_number(std::string phone_number)
+int Contact::set_phone_number(std::string phone_number)
 {
     phone_number = my_trim(phone_number);
     if (phone_number.empty())
     {
         std::cout << "phone number is empty" << std::endl;
-        return;
+        return 1;
     }
     else
     {
@@ -175,31 +172,32 @@ void Contact::set_phone_number(std::string phone_number)
             if (!isdigit(phone_number[i]))
             {
                 std::cout << "phone number is not valid" << std::endl;
-                return;
+                return 1;
             }
-            if (phone_number.length() > 10)
-            {
-                phone_number[9] = '.';
-                phone_number.erase(10, phone_number.lenght() - 10);
-            }
-            this->_phone_number = phone_number;
+        }
+        if (phone_number.length() > 10)
+        {
+            phone_number[9] = '.';
+            phone_number.erase(10, phone_number.length() - 10);
         }
     }
+    this->_phone_number = phone_number;
+    return 0;
 }
 
-void Contact::set_darkset_secret(std::string darkest_secret)
+int Contact::set_darkest_secret(std::string darkest_secret)
 {
     darkest_secret = my_trim(darkest_secret);
     if (darkest_secret.empty())
     {
         std::cout << "darkest secret is empty" << std::endl;
-        return;
+        return 1;
     }
     if (darkest_secret.length() > 10)
     {
         darkest_secret[9] = '.';
-        darkest_secret.erase(10, darkest_secret.lenght() - 10);
+        darkest_secret.erase(10, darkest_secret.length() - 10);
     }
     this->_darkest_secret = darkest_secret;
-    
+    return 0;
 }
