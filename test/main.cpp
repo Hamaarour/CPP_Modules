@@ -16,7 +16,16 @@ public:
 };
 int main()
 {
-    test t(5);
-    t.print();
-    return 0;
+    int i = 1;
+    double *array = new double[10];
+    for (i = 1; i < 11; i++)
+    {
+        array[i-1] = i;
+    }
+    i = 1;
+    for (i = 1; i < 11; i++)
+    {
+        std::cout << array[i-1] << std::endl;
+    }
+    delete [] array;
 } 

@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 13:22:55 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/07 13:22:55 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:41:40 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void randomChump(std::string name)
 {
-    Zombie zombie = Zombie();
-    zombie.setName(name);
-    zombie.announce();
+    Zombie zmb = Zombie(name);
+    zmb.announce();
 }

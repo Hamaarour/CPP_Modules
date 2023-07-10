@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 12:41:41 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/07 12:41:41 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/10 18:40:36 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,13 @@ private:
     std::string _name;
 
 public:
-    Zombie();
+    Zombie(std::string name);
     ~Zombie();
-    std::string getName(void);
-    void setName(std::string name);
     void announce(void);
 };
-Zombie *newZombie(std::string name);
-void randomChump(std::string name);
+// Creates new Zombie stored on the heap, which announces itself
+Zombie	*newZombie(std::string name);
+
+// Creates new Zombie stored on the stack, which announces itself
+void	randomChump(std::string name);
 #endif
