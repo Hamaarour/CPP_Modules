@@ -20,7 +20,7 @@ Zombie::Zombie(std::string name)
 
 Zombie::Zombie()
 {
-    this->_name = "default";
+    this->_name = "empty";
     std::cout << "Constructor default is born" << std::endl;
 }
 
