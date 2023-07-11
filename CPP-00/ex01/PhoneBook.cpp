@@ -12,10 +12,11 @@
 
 #include "Phonebook.hpp"
 
-Phonebook::Phonebook()
+Phonebook::Phonebook():_index(0) 
 {
-    this->_index = 0;
+    
 }
+
 
 Phonebook::~Phonebook() {}
 

@@ -1,27 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 10:10:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/11 12:33:30 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/07/11 14:06:28 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/07/11 14:15:15 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef WEAPON_H
+#define WEAPON_H
+
+#include <iostrem>
 #include <string>
 
-int main ()
+class Weapon
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *stringPTR = &str;
-    //stringRef is a reference to str semailaire to nickname or an alias
-    std::string &stringREF = str;
+private:
+    std::string _type;
 
-    std::cout << &str << " : " << str << std::endl;
-    std::cout << stringPTR << " : " << *stringPTR << std::endl;
-    std::cout << &stringREF << " : " << stringREF << std::endl;
-    return (0);
-}
+public:
+    Weapon();
+    std::string getType(void) const;
+    void setType(std::string type);
+    ~Weapon();
+};
+
+#endif

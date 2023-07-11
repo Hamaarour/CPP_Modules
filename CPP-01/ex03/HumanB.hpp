@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/11 10:10:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/11 12:33:30 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/07/11 14:20:42 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/07/11 14:25:46 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef HUMANB_H
+#define HUMANB_H
+
 #include <iostream>
 #include <string>
+#include "Weapon.hpp"
 
-int main ()
+class HumanB
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string *stringPTR = &str;
-    //stringRef is a reference to str semailaire to nickname or an alias
-    std::string &stringREF = str;
+private:
+    std::string _name;
+    Weapon *_weapon;
 
-    std::cout << &str << " : " << str << std::endl;
-    std::cout << stringPTR << " : " << *stringPTR << std::endl;
-    std::cout << &stringREF << " : " << stringREF << std::endl;
-    return (0);
-}
+public:
+    HumanB(std::string name);
+    void attack(void);
+    ~HumanB();
+};
+
+#endif
