@@ -10,23 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int main(void)
 {
-    Phonebook phonebook;
+    PhoneBook PhoneBook;
     std::string command;
-    phonebook.menu();
-    while (1)
+    PhoneBook.menu();
+    while (true)
     {
         std::cout << "Enter a command : ";
-        std::getline(std::cin, command);
-        if (command == "EXIT")
-            break ;
+        if (!std::getline(std::cin, command))
+            break;
+        if (command.empty()) {
+            std::cout << "Invalid command" << std::endl;
+            continue;
+        }
+        if (command == "EXIT") 
+            break;
         else if (command == "ADD")
-            phonebook.add();
+            PhoneBook.add();
         else if (command == "SEARCH")
-            phonebook.search();
+            PhoneBook.search();
         else
             std::cout << "Invalid command" << std::endl;
     }

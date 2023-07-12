@@ -12,10 +12,6 @@
 
 #include "Contact.hpp"
 
-Contact::Contact(void){}
-
-Contact::~Contact(void){}
-
 std::string Contact::get_first_name(void) const
 {
     return (this->_first_name);
@@ -41,31 +37,8 @@ std::string Contact::get_darkest_secret(void) const
     return (this->_darkest_secret);
 }
 
-/*
-The condition if (std::string::npos == first) is used to handle a special case
-in the trim function implementation.
-
-In the trim function, the find_first_not_of function is used
- to find the position of the first non-whitespace character in the string.
-  It returns std::string::npos if no such character is found.
-
-If find_first_not_of returns std::string::npos, it means that the
-entire string consists of whitespace characters. In such a case,
-there is no need to perform any trimming, and the original string
-can be returned as it is.
-
-The if (std::string::npos == first) return (str); statement allows
- the function to exit early and return the original string without
- any modifications. It saves unnecessary operations of finding the
- last non-whitespace character and erasing the substrings.
-
-By checking this condition at the beginning, we can optimize the trim
-function for the case where the input string is already trimmed or
-contains only whitespace characters.
-*/
 std::string my_trim(const std::string &str)
 {
-    // find_first_not_of returns the index of the first character that does not match any of the characters specified in its arguments
     size_t first = str.find_first_not_of(' ');
     if (std::string::npos == first)
         return (str);
@@ -85,9 +58,9 @@ int Contact::set_first_name(std::string first_name)
     {
         for (size_t i = 0; i < first_name.length(); i++)
         {
-            if (!std::isalpha(first_name[i]) || !std::isspace(first_name[i]))
+            if (!std::isalpha(first_name[i]) && !std::isspace(first_name[i]))
             {
-                std::cout << "first name is not valid" << std::endl;
+                std::cout << "First name is not valid" << std::endl;
                 return 1;
             }
         }
@@ -106,14 +79,14 @@ int Contact::set_last_name(std::string last_name)
     last_name = my_trim(last_name);
     if (last_name.empty())
     {
-        std::cout << "first name is empty" << std::endl;
+        std::cout << "lastname is empty" << std::endl;
         return 1;
     }
     else
     {
         for (size_t i = 0; i < last_name.length(); i++)
         {
-            if (!isalpha(last_name[i]) || !isspace(last_name[i]))
+            if (!isalpha(last_name[i]) && !isspace(last_name[i]))
             {
                 std::cout << "last name is not valid" << std::endl;
                 return 1;
@@ -141,7 +114,7 @@ int Contact::set_nickname(std::string nickname)
     {
         for (size_t i = 0; i < nickname.length(); i++)
         {
-            if (!isalpha(nickname[i]) || !isspace(nickname[i]))
+            if (!isalpha(nickname[i]) && !isspace(nickname[i]))
             {
                 std::cout << "nickname is not valid" << std::endl;
                 return 1;

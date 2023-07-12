@@ -10,20 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef PhoneBook_HPP
+#define PhoneBook_HPP
 
 #include <iostream>
+#include <iomanip>
 #include "Contact.hpp"
-class Phonebook
+class PhoneBook
 {
 private:
     Contact _contact[8];
     int _index;
 
 public:
-    Phonebook();
-    ~Phonebook();
+    PhoneBook();
+    ~PhoneBook();
     void add(void);
     void search(void);
     void print() const;

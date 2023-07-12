@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.cpp                                      :+:      :+:    :+:   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,105 +10,113 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
-Phonebook::Phonebook():_index(0) 
+PhoneBook::PhoneBook()
 {
-    
+    this->_index = 0;
 }
 
+PhoneBook::~PhoneBook() {}
 
-Phonebook::~Phonebook() {}
-
-void Phonebook::add()
+void PhoneBook::add()
 {
-    std::string input = "";
+    std::string input;
     int i = 0;
+    int flag = 0;
 
-    while (input.empty() || i == 1)
+    while (std::cin.good() && (input.empty() || i == 1))
     {
         i = 0;
         std::cout << "Enter your first name: ";
         std::getline(std::cin, input);
-        if (input.empty() == 1)
-            std::cout << "first name can't be empty" << std::endl;
         if (this->_contact[this->_index % 8].set_first_name(input) == 1)
-            continue;
-        else
+        {    
             i = 1;
+            flag--;    
+        }
+        flag++;
     }
-    while (input.empty() || i == 1)
+    input.clear();
+    while (std::cin.good() && (input.empty() || i == 1))
     {
         i = 0;
         std::cout << "Enter your last name: ";
         std::getline(std::cin, input);
-        if (input.empty() == 1)
-            std::cout << "last name can't be empty" << std::endl;
         if (this->_contact[this->_index % 8].set_last_name(input) == 1)
-            continue;
-        else
+        {    
             i = 1;
+            flag--;    
+        }
+        flag++;
     }
-    while (input.empty() || i == 1)
+    input.clear(); 
+    while (std::cin.good() && (input.empty() || i == 1))
     {
         i = 0;
         std::cout << "Enter your nickname: ";
         std::getline(std::cin, input);
-        if (input.empty() == 1)
-            std::cout << "nickname can't be empty" << std::endl;
         if (this->_contact[this->_index % 8].set_nickname(input) == 1)
-            continue;
-        else
+        {    
             i = 1;
+            flag--;    
+        }
+        flag++;
     }
-    while (input.empty() || i == 1)
+    input.clear();
+    while (std::cin.good() && (input.empty() || i == 1))
     {
         i = 0;
         std::cout << "Enter your phone number: ";
         std::getline(std::cin, input);
-        if (input.empty() == 1)
-            std::cout << "phone number can't be empty" << std::endl;
         if (this->_contact[this->_index % 8].set_phone_number(input) == 1)
-            continue;
-        else
+        {    
             i = 1;
+            flag--;    
+        }
+        flag++;
     }
-    while (input.empty() || i == 1)
+    input.clear();
+    while (std::cin.good() && (input.empty() || i == 1))
     {
         i = 0;
         std::cout << "Enter your darkest secret: ";
         std::getline(std::cin, input);
-        if (input.empty() == 1)
-            std::cout << "darkest secret can't be empty" << std::endl;
         if (this->_contact[this->_index % 8].set_darkest_secret(input) == 1)
-            continue;
-        else
+        {    
             i = 1;
+            flag--;    
+        }
+        flag++;
     }
     this->_index++;
     input.clear();
-    std::cout << "Contact added successfully" << std::endl;
+    if (flag == 5)
+        std::cout << "\033[0;32mContact added successfully\033[0m" << std::endl;
+    else
+        std::cout << "\033[0;31mContact not added\033[0m" << std::endl;
+
 }
 
-void Phonebook::print() const
+void PhoneBook::print() const
 {
-    std::cout << "|-----------------------------------------------|" << std::endl;
-    std::cout << "|                   Phonebook                   |" << std::endl;
-    std::cout << "|-----------------------------------------------|" << std::endl;
-    std::cout << "|  index   | first name | last name | nickname  |" << std::endl;
-    std::cout << "|----------|------------|-----------|-----------|" << std::endl;
+    std::cout << "|-------------------------------------------|" << std::endl;
+    std::cout << "|                   PhoneBook               |" << std::endl;
+    std::cout << "|-------------------------------------------|" << std::endl;
+    std::cout << "|  index   |first name|last name | nickname |" << std::endl;
+    std::cout << "|----------|----------|----------|----------|" << std::endl;
 
     for (int i = 0; i < 8; i++)
     {
-        std::cout << "|    " << i + 1 << "    |";
-        std::cout << this->_contact[i].get_first_name() << " |";
-        std::cout << this->_contact[i].get_last_name() << " |";
-        std::cout << this->_contact[i].get_nickname() << " |";
-        std::cout << std::endl;
+        std::cout << '|' << std::setw(10) << i + 1 ;
+        std::cout << '|' << std::setw(10) << this->_contact[i].get_first_name() ;
+        std::cout << '|' << std::setw(10) << this->_contact[i].get_last_name() ;
+        std::cout << '|' << std::setw(10) << this->_contact[i].get_nickname()  ;
+        std::cout << '|' << std::endl;
     }
 }
 
-void Phonebook::search()
+void PhoneBook::search()
 {
     int in = 0;
     std::string input;
@@ -117,30 +125,40 @@ void Phonebook::search()
     std::getline(std::cin, input);
     if (input.empty() == 0)
     {
-        in = std::stoi(input);
-        if (in > 0 && in <= this->_index)
+        if (input[0] <= '0' || input[0] >= '9')
         {
-            std::cout << "first name: " << this->_contact[in - 1].get_first_name() << std::endl;
-            std::cout << "last name: " << this->_contact[in - 1].get_last_name() << std::endl;
-            std::cout << "nickname: " << this->_contact[in - 1].get_nickname() << std::endl;
-            std::cout << "phone number: " << this->_contact[in - 1].get_phone_number() << std::endl;
-            std::cout << "darkest secret: " << this->_contact[in - 1].get_darkest_secret() << std::endl;
+            std::cout << "Invalid !!" << std::endl;
             return;
         }
-        std::cout << "index not found" << std::endl;
+        in = std::stoi(input);
+        if(std::cin.fail() || (in < 0 || in > 8))
+        {
+            std::cout << "Index not found" << std::endl;
+            return;
+        }
+        if (in > 0 && in <= this->_index)
+        {
+            std::cout << "First name: " << this->_contact[in - 1].get_first_name() << std::endl;
+            std::cout << "Last name: " << this->_contact[in - 1].get_last_name() << std::endl;
+            std::cout << "Nickname: " << this->_contact[in - 1].get_nickname() << std::endl;
+            std::cout << "Phone number: " << this->_contact[in - 1].get_phone_number() << std::endl;
+            std::cout << "Darkest secret: " << this->_contact[in - 1].get_darkest_secret() << std::endl;
+            return;
+        }
+        std::cout << "Index not found" << std::endl;
         return;
     }
-    std::cout << "index can't be empty" << std::endl;
+    std::cout << "Index can't be empty" << std::endl;
     return;
 }
 
-void Phonebook::menu() const
+void PhoneBook::menu() const
 {
     std::cout << "|-----------------------------------------------|" << std::endl;
-    std::cout << "|                   Phonebook                   |" << std::endl;
+    std::cout << "|                   PhoneBook                   |" << std::endl;
     std::cout << "|-----------------------------------------------|" << std::endl;
-    std::cout << "|                   1 - SEARCH                  |" << std::endl;
-    std::cout << "|                   2 - ADD                     |" << std::endl;
-    std::cout << "|                   3 3 EXIT                    |" << std::endl;
+    std::cout << "|                    - SEARCH                   |" << std::endl;
+    std::cout << "|                    - ADD                      |" << std::endl;
+    std::cout << "|                    - EXIT                     |" << std::endl;
     std::cout << "|-----------------------------------------------|" << std::endl;
 }
