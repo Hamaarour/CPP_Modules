@@ -6,13 +6,13 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/11 12:48:13 by hamaarou          #+#    #+#              #
-#    Updated: 2023/07/11 12:52:06 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/07/14 19:09:09 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 Name = Weapon
 CC = c++
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJ = $(SRC:.cpp=.o)
 
@@ -20,9 +20,6 @@ all: $(Name)
 
 $(Name): $(OBJ)
 	$(CC) $(FLAGS) $(OBJ) -o $(Name)
-
-%.o: %.cpp
-	@$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ)

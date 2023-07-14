@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/10 19:08:13 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/14 21:58:09 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/07/14 22:25:17 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/07/14 22:25:59 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
-Zombie *zombieHorde(int N, std::string name)
+int main (int ac, char **av)
 {
-    if (N <= 0)
-        return (NULL);
-    Zombie *zombie = new Zombie[N];
-    for (int i = 0; i < N; i++)
+    if (ac == 4)
     {
-        zombie[i].setName(name);
+        
     }
-    return (zombie);
+    return (0);
 }

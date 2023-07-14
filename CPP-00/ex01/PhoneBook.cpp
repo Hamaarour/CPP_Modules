@@ -109,9 +109,9 @@ void PhoneBook::print() const
     for (int i = 0; i < 8; i++)
     {
         std::cout << '|' << std::setw(10) << i + 1 ;
-        std::cout << '|' << std::setw(10) << this->_contact[i].get_first_name() ;
-        std::cout << '|' << std::setw(10) << this->_contact[i].get_last_name() ;
-        std::cout << '|' << std::setw(10) << this->_contact[i].get_nickname()  ;
+        std::cout << '|' << std::setw(10) << this->_contact[i].get_info(this->_contact[i].get_first_name());
+        std::cout << '|' << std::setw(10) << this->_contact[i].get_info(this->_contact[i].get_last_name());
+        std::cout << '|' << std::setw(10) << this->_contact[i].get_info(this->_contact[i].get_nickname());
         std::cout << '|' << std::endl;
     }
 }

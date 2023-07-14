@@ -36,7 +36,7 @@ public:
     std::string get_nickname(void) const;
     std::string get_phone_number(void) const;
     std::string get_darkest_secret(void) const;
-    
+    std::string get_info(std::string str) const;
 };
 
 #endif

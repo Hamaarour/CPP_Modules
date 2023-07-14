@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:33:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/11 17:23:13 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/14 19:18:05 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,18 @@ int main ()
         club.setType("some other type of club");
         jim.attack();
     }
+    
 }
+/*In this case, it would be best to use a pointer to 
+    Weapon in the HumanB class.
+    This is because HumanB may not  always have a Weapon, so we need 
+    to be able to check if the pointer is nullptr before we dereference it.
+    
+    If we used  a reference to Weapon, we would not be able to do this, and 
+    we would run the risk of accessing a Weapon that does not exist.
+
+We can use a reference to Weapon in the HumanA class because we
+ know that HumanA will always have a Weapon. This means that we can 
+ safely dereference the reference without having to check if it is nullptr first.
+
+*/

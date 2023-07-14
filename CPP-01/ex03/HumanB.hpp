@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 14:20:42 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/11 14:25:46 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/14 19:04:25 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@
 class HumanB
 {
 private:
-    std::string _name;
-    Weapon *_weapon;
+    std::string name;
+    Weapon *weapon;
 
 public:
     HumanB(std::string name);
     void attack(void);
+    void setWeapon(Weapon &weapon);
     ~HumanB();
 };
 
