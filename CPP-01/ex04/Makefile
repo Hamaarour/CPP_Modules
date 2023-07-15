@@ -6,13 +6,13 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/14 22:32:29 by hamaarou          #+#    #+#              #
-#    Updated: 2023/07/14 22:33:32 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/07/15 17:24:21 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME= file
+NAME= replace
 CC= c++
-SRC= main.cpp file.cpp
+SRC= main.cpp Replace.cpp
 OBJ= $(SRC:.cpp=.o)
 CFLAGS= -Wall -Wextra -Werror -std=c++98
 
