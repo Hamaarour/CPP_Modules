@@ -27,12 +27,12 @@ Replace::~Replace()
 void Replace::replace()
 {
     std::ifstream file(this->filename);
+    std::ofstream newfile(this->newfilename);
+    std::string line;
+    std::string newline;
 
     if (file.is_open())
     {
-        std::ofstream newfile(this->newfilename);
-        std::string line;
-        std::string newline;
         while (getline(file, line) && !file.eof() && newfile.is_open())
         {
             size_t pos = 0;
