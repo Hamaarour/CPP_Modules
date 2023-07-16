@@ -407,6 +407,7 @@ In this example, the `increment()` function takes a reference to an integer as a
 
 In C++, the lifetime of a variable or object refers to the period of time during which the variable or object exists in memory. The lifetime of a variable or object can be affected by the storage duration and the scope of the variable or object.
 
+
 ### Storage Duration
  The storage duration of a variable or object determines how long the variable or object persists in memory. There are three storage durations in C++, `static`, `automatic`, `dynamic`.
  ### Static storage duration : 
@@ -439,7 +440,7 @@ In C++, the lifetime of a variable or object refers to the period of time during
  *p = 5;
  ```
  
- In this example, the `p` pointer is created with dynamic storage duration and is initialized to point to a dynamically allocated integer with the value 5. The dynamically allocated integer will persist in memory until it is deallocated using the `delete` operator.
+In this example, the `p` pointer is created with dynamic storage duration and is initialized to point to a dynamically allocated integer with the value 5. The dynamically allocated integer will persist in memory until it is deallocated using the `delete` operator. 
 
 ### Scope
 
@@ -448,3 +449,48 @@ The scope of a variable or object determines where the variable or object is vis
     - Local scope: Variables and objects with local scope are visible only within the block of code in which they are defined. You can create a local variable or object by declaring it within a function or block of code.
     - Class scope: Variables and objects with class scope are visible only within the class in which they are defined. You can create a class vairbale or object by declaring it within the class definition.
 
+### In Short
+
+1- Objects not created with new have automatic lifetime (created in the stack as you say, but that is an implementation technique chosen by most compilers), they are automatically freed once they go out of scope.
+
+2- The lifetime of objects created with new (created in the heap, again as an implementation technique of most compilers), need to be managed by the programmer. Notice that deleting is NOT setting the pointer to NULL, it should happen before. The simple rule is:
+
+Each new must be matched with one an only one delete
+each new[] (creation of dynamic arrays) must be matched with one an only one delete[]
+
+p.s: matched here concerns one-vs-one occurrence in the program's runtime, 
+not necessarily in the code itself (you have control over when and where to delete any newed object).
+
+## function pointer 
+A function pointer in C++ is a variable that stores the address of a function. This allows you to call the function indirectly, by calling the function pointer instead of the function name.
+
+Function pointers can be used for a variety of purposes, including:
+
+Passing functions as arguments to other functions. This is called callback. For example, you can pass a function pointer to a sorting function, so that the sorting function can call the function pointer to perform some custom sorting logic.
+Creating menus or dialog boxes with multiple options. Each option can be represented by a function pointer, so that when the user selects an option, the corresponding function pointer is called.
+Implementing polymorphism. Polymorphism is the ability of an object to behave differently depending on its type. Function pointers can be used to implement polymorphism by storing the address of the function that should be called for a particular object.
+Here is an example of a function pointer in C++:
+```c++
+int (*my_function_pointer)(int, int);
+
+int add_numbers(int a, int b) {
+  return a + b;
+}
+
+int main() {
+  my_function_pointer = add_numbers;
+  int result = my_function_pointer(10, 20);
+  std::cout << result << std::endl;
+  return 0;
+}
+```
+In this example, the function pointer my_function_pointer is declared to store the address of a function that takes two integers as arguments and returns an integer. The function add_numbers is assigned to the function pointer my_function_pointer. In the main function, the function pointer my_function_pointer is called with the arguments 10 and 20. The result of the function call is printed to the console.
+
+Function pointers can be a powerful tool for C++ programmers. They can be used to achieve a variety of programming goals, such as passing functions as arguments to other functions, creating menus or dialog boxes with multiple options, and implementing polymorphism
+ 
+ ## member function pointer, Function pointer
+ The difference between the two statements is that the first statement creates a member function pointer, while the second statement creates a normal function pointer.
+
+A member function pointer is a pointer to a member function of a class. It is used to call member functions of an object indirectly. A normal function pointer is a pointer to a regular function. It is used to call regular functions indirectly.
+
+In your example, you are creating an array of pointers to member functions of the Harl class. Therefore, you need to use the Harl::*p syntax to create member function pointers. If you use the void (*p[4])(void) syntax, you will create an array of normal function pointers, which will not be able to call member functions of the Harl class.
