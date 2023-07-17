@@ -6,14 +6,14 @@
 #    By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/17 10:17:14 by hamaarou          #+#    #+#              #
-#    Updated: 2023/07/17 10:40:20 by hamaarou         ###   ########.fr        #
+#    Updated: 2023/07/17 21:55:09 by hamaarou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = Fixed
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp
+SRC = main.cpp Fixed.cpp
 OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)

@@ -6,13 +6,14 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 10:44:30 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/17 11:32:10 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/17 21:56:40 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-class Fixed{
+class Fixed
+{
 private:
     int _fixed_point_value;
     static const int _fractional_bits = 8;
@@ -20,6 +21,8 @@ private:
 public:
     Fixed();
     Fixed(Fixed const &src);
+    Fixed & operator=(Fixed const &src);
+    int getRawBits(void) const;
+    void setRawBits(int const raw);
     ~Fixed();
-     
 };

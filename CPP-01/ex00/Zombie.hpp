@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 12:41:41 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/10 18:40:36 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:02:15 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@
 
 class Zombie
 {
-private:
-    std::string _name;
+    private:
+        std::string _name;
 
-public:
-    Zombie(std::string name);
-    ~Zombie();
-    void announce(void);
+    public:
+        Zombie(std::string name);
+        ~Zombie();
+        void announce(void);
 };
 // Creates new Zombie stored on the heap, which announces itself
 Zombie	*newZombie(std::string name);

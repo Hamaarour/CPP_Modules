@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/10 19:08:13 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/14 21:58:09 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:05:16 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Zombie *zombieHorde(int N, std::string name)
     if (N <= 0)
         return (NULL);
     Zombie *zombie = new Zombie[N];
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < N ; i++)
     {
         zombie[i].setName(name);
     }
