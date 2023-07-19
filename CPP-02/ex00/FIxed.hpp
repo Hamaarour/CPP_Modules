@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FIxed.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 10:44:30 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/17 21:56:40 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/18 08:58:10 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 class Fixed
 {
 private:
-    int _fixed_point_value;
-    static const int _fractional_bits = 8;
+    int fixed_point_value;
+    static const int fractional_bits = 8;
 
 public:
     Fixed();

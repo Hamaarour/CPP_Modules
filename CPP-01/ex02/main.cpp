@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 10:10:53 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/11 12:33:30 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/17 22:36:23 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ int main ()
     std::cout << &str << " : " << str << std::endl;
     std::cout << stringPTR << " : " << *stringPTR << std::endl;
     std::cout << &stringREF << " : " << stringREF << std::endl;
+
+    
     return (0);
 }

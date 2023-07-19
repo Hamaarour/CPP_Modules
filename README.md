@@ -286,7 +286,7 @@ In general, the initializer list syntax is preferred over the member initializer
 
     
 ## Benifits of using Setters and Getters!
--In object-oriented programming (OOP), setter and getter functions, also known as "accessor" and "mutator" methods, are used to manage the value of an object's private data members. Setter functions, also called "mutator methods," are used to set the value of a private data member, while getter functions, also called "accessor methods," are used to retrieve the value of a private data member.
+-In object-oriented programming (OOP), setter and getter functions, also known as "accessor" methods, are used to manage the value of an object's private data members. Setter functions, are used to set the value of a private data member, while getter functions, also called "accessor methods," are used to retrieve the value of a private data member.
 
 Using setters and getters has several benefits:
 
