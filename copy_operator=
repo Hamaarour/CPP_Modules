@@ -1,0 +1,6 @@
+Fixed & Fixed::operator=(Fixed const &src){
+    std::cout << "Assignation operator called" << std::endl;
+    if (this != &src)
+        this->fixed_point_value = src.getRawBits();
+    return (*this);   
+}
