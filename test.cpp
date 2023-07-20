@@ -1,14 +1,13 @@
 #include <string>
 #include <iostream>
-double square(const int x) {
-    x = 10;
-  return x;
-}
+class Hello{
+  public:
+    Hello(){
+      std::cout << *this << std::endl;
+    }
+};
 
 int main ()
 {
-   
-    double k = square(5);
-
-    std::cout << k << std::endl;
+   Hello h;
 }
