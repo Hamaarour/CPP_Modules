@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:17:15 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/21 15:56:57 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/21 16:25:19 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ Fixed Fixed::operator-(const Fixed &src) const
     return (Fixed(this->toFloat() - src.toFloat()));
 }
 
+// unary operator overloading
 Fixed &Fixed::operator++(void)
 {
     this->fixed_point_value++;
@@ -146,6 +147,8 @@ Fixed Fixed::operator--(int)
     operator--();
     return (tmp);
 }
+
+// static member function 
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
