@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:11:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/20 12:17:11 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/21 12:17:20 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ class Fixed{
         static const Fixed &min(const Fixed &a, const Fixed &b);
         static const Fixed &max(const Fixed &a, const Fixed &b);          
 };
+
+std::ostream &operator<<(std::ostream &out, const Fixed &src);
 
 
 #endif

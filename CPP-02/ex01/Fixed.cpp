@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 07:58:54 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/20 11:35:43 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/21 12:31:21 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int Fixed::toInt() const {
 }
 
 // Output stream operator overload
-std::ostream &operator<<(std::ostream &o, Fixed const &src) {
-    o << src.toFloat();
+std::ostream &operator<<(std::ostream &COUT, Fixed const &src) {
+    COUT << src.toFloat();
     return o;
 }
