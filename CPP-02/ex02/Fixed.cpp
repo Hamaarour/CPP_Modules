@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:17:15 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/21 16:25:19 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/22 11:14:58 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,25 @@
 
 Fixed::Fixed () : fixed_point_value(0)
 {
-    //std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed (const int value)
 {
-    //std::cout << "Int constructor called" << std::endl;
     this->fixed_point_value = value << this->fractional_bits;
 }
 
 Fixed::Fixed (const float value)
 {
-    //std::cout << "Float constructor called" << std::endl;
     this->fixed_point_value = roundf(value * (1 << this->fractional_bits));
 }
 
 Fixed::Fixed (const Fixed &src)
 {
-    //std::cout << "Copy constructor called" << std::endl;
     *this = src;
 }
 
 Fixed::~Fixed ()
 {
-    //std::cout << "Destructor called" << std::endl;
 }
 
 float Fixed::toFloat( void ) const
@@ -52,20 +47,17 @@ int Fixed::toInt( void ) const
 
 int Fixed::getRawBits(void) const
 {
-    //std::cout << "getRawBits member function called" << std::endl;
     return (this->fixed_point_value);
 }   
 
 void Fixed::setRawBits(int const raw)
 {
-    //std::cout << "setRawBits member function called" << std::endl;
     this->fixed_point_value = raw;
 }
 
 // Overload operator
 Fixed &Fixed::operator=(Fixed const &src)
 {
-    //std::cout << "Assignation operator called" << std::endl;
     if (this != &src)
         this->fixed_point_value = src.getRawBits();
     return (*this);
@@ -130,7 +122,7 @@ Fixed &Fixed::operator++(void)
 
 Fixed Fixed::operator++(int)
 {
-    Fixed tmp(*this);
+    Fixed tmp(*this)
     operator++();
     return (tmp);
 }
