@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/17 11:59:04 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/20 08:18:46 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/23 20:57:10 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,6 @@ Fixed::Fixed(){
 Fixed::Fixed(Fixed const &src){
     std::cout << "Copy constructor called" << std::endl;
     *this = src;
-    /*
-        The *this expression is used to dereference the current object,
-    allowing you to assign the values from src to the object being
-    constructed.
-        that this is a pointer to the current object, while *this is
-    the dereferenced object itself. In this context, you need to 
-    dereference this to access and modify the object itself when using
-    the assignment operator.
-    */
 }
 
 Fixed::~Fixed(){
@@ -37,7 +28,6 @@ Fixed::~Fixed(){
 
 Fixed & Fixed::operator=(Fixed const &src){
     std::cout << "Assignation operator called" << std::endl;
-    //This check is necessary to avoid unnecessary work when an object is assigned to itself,
     if (this != &src)
         this->fixed_point_value = src.getRawBits();
     return (*this);   
