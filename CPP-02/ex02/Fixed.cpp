@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:17:15 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/22 11:14:58 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/24 18:30:52 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ Fixed &Fixed::operator++(void)
 
 Fixed Fixed::operator++(int)
 {
-    Fixed tmp(*this)
+    Fixed tmp(*this);
     operator++();
     return (tmp);
 }
