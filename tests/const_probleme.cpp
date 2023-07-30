@@ -1,50 +1,33 @@
 #include <iostream>
 
-// class MyClass {
-// public:
-//     int getRawBits() const; // Const member function
-//     void setRawBits(int value); // Non-const member function
-// };
-// /*
-// //const qualifier at the end. This indicates that getRawBits() 
-// //is a const member function, meaning it guarantees not to modify
-// //the state of the object it is called on.
-// */
-// int MyClass::getRawBits() const {
-//     return 0;
-// }
+class Fixed {
+public:
+    Fixed(double value) : fixed_point_value(value) {}
 
-// void MyClass::setRawBits(int value)  {
-//     // Do something
-//     return;
-// }
+    // Overloading the addition operator '+'
+    Fixed  operator+(const Fixed &src) const {
+        return Fixed(this->fixed_point_value + src.fixed_point_value);
+    }
 
-// void someFunction(const MyClass& obj) {
-//     int x = obj.getRawBits(); // OK, calling const member function on const object
-//     obj.setRawBits(10); // Error! Cannot call non-const member function on const object
-// }
+    // Getter method to access the fixed_point_value
+    double getValue() const {
+        return fixed_point_value;
+    }
 
-class cc{
-    public: 
-        const int x;
-        cc(int a);
-        cc();
-        void pr(void);
+private:
+    double fixed_point_value;
 };
 
-cc::cc(int a):x(a)
-    {
-        std::cout << "hello Mr." << a << std::endl;
-    }
+int main() {
+    const Fixed a(3.14);
+    const Fixed b(2.71);
 
-cc::cc()
-    {
-        std::cout << "hello Mr." << std::endl;
-    }
+    // Using the overloaded addition operator
+    Fixed c = a + b;
 
+    std::cout << "a: " << a.getValue() << std::endl; // Output: a: 3.14
+    std::cout << "b: " << b.getValue() << std::endl; // Output: b: 2.71
+    std::cout << "c: " << c.getValue() << std::endl; // Output: c: 5.85
 
-int main ()
-{
-    cc c;
     return 0;
 }

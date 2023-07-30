@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 12:17:15 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/24 18:30:52 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/29 21:34:05 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,40 @@ bool Fixed::operator!=(const Fixed &src) const
 
 Fixed Fixed::operator*(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() * src.toFloat()));
+    Fixed   tmp;
+
+    int  r = this->fixed_point_value * src.fixed_point_value;
+    tmp.setRawBits(r / (1 << this->fractional_bits));
+    return (tmp);
 }
 
 Fixed Fixed::operator/(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() / src.toFloat()));
+    Fixed   tmp;
+
+    int  r = this->fixed_point_value / src.fixed_point_value;
+    tmp.setRawBits(r * (1 << this->fractional_bits));
+    return (tmp);
 }
 
 Fixed Fixed::operator+(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() + src.toFloat()));
+    Fixed   tmp;
+    int     r;
+
+    r = this->fixed_point_value + src.fixed_point_value;
+    tmp.setRawBits(r);
+    return (tmp);
 }
 
 Fixed Fixed::operator-(const Fixed &src) const
 {
-    return (Fixed(this->toFloat() - src.toFloat()));
+    Fixed   tmp;
+    int     r;
+
+    r = this->fixed_point_value - src.fixed_point_value;
+    tmp.setRawBits(r);
+    return (tmp);
 }
 
 // unary operator overloading
@@ -144,22 +162,22 @@ Fixed Fixed::operator--(int)
 
 Fixed &Fixed::min(Fixed &a, Fixed &b)
 {
-    return ((a < b) ? a : b);
+    return ((a.getRawBits() < b.getRawBits()) ? a : b);
 }
 
 Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
 {
-    return ((a < b) ? a : b);
+    return ((a.getRawBits() < b.getRawBits()) ? a : b);
 }
 
 Fixed &Fixed::max(Fixed &a, Fixed &b)
 {
-    return ((a > b) ? a : b);
+    return ((a.getRawBits() > b.getRawBits()) ? a : b);
 }
 
 Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
 {
-    return ((a > b) ? a : b);
+    return ((a.getRawBits() > b.getRawBits()) ? a : b);
 }
 
 std::ostream &operator<<(std::ostream &out, Fixed const &src)
