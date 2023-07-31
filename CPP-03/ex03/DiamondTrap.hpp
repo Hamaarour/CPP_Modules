@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 23:01:24 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/25 16:40:53 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/07/30 23:38:39 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class DiamondTrap : virtual public ScavTrap, virtual public FragTrap
         ~DiamondTrap();
 
         void whoAmI(void);
+        
         
 };
 #endif
