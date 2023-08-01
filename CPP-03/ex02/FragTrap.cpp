@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 22:40:34 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/07/22 22:52:24 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/01 01:05:47 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ FragTrap::FragTrap(std::string Name): ClapTrap(Name)
     this->Hitpoints = 100;
     this->Energy_points = 100;
     this->Attack_damage = 30;
+}
+
+FragTrap & FragTrap::operator=(FragTrap const &rhs)
+{
+    std::cout << "FragTrap Assignation operator called" << std::endl;
+    if (this != &rhs)
+    {
+        this->Name = rhs.Name;
+        this->Hitpoints = rhs.Hitpoints;
+        this->Energy_points = rhs.Energy_points;
+        this->Attack_damage = rhs.Attack_damage;
+    }
+    return (*this);
 }
 
 FragTrap::FragTrap(FragTrap const & rhs)
