@@ -494,3 +494,53 @@ Function pointers can be a powerful tool for C++ programmers. They can be used t
 A member function pointer is a pointer to a member function of a class. It is used to call member functions of an object indirectly. A normal function pointer is a pointer to a regular function. It is used to call regular functions indirectly.
 
 In your example, you are creating an array of pointers to member functions of the Harl class. Therefore, you need to use the Harl::*p syntax to create member function pointers. If you use the void (*p[4])(void) syntax, you will create an array of normal function pointers, which will not be able to call member functions of the Harl class.
+
+## Virtual
+In C++, a virtual function is a member function defined in a base class that can be redefined in a derived class. It is declared using the virtual keyword. The primary purpose of virtual functions is to enable dynamic linkage or late binding of the function calls.
+
+Examples:
+Let's consider a scenario where you have a base class Shape and two derived classes Circle and Rectangle. The Shape class has a virtual function called calculateArea(). Each derived class provides its own implementation of this function.
+```c++
+class Shape {
+public:
+    virtual double calculateArea() const {
+        return 0.0; // Default implementation for the base class
+    }
+};
+
+class Circle : public Shape {
+public:
+    double radius;
+    double calculateArea() const override {
+        return 3.14 * radius * radius; // Area calculation for a circle
+    }
+};
+
+class Rectangle : public Shape {
+public:
+    double length, width;
+    double calculateArea() const override {
+        return length * width; // Area calculation for a rectangle
+    }
+};
+
+```
+n this example, the calculateArea() function is declared as virtual in the base class Shape and redefined in both Circle and Rectangle derived classes. When you call the calculateArea() function through a pointer of type Shape that actually points to an object of either Circle or Rectangle, the appropriate version of the function will be dynamically determined at runtime based on the actual object type.
+
+Explanation:
+Prior to the introduction of virtual functions, function calls were resolved statically at compile time based on the declared type of the object. This meant that the compiler determined which function to call during compilation itself.
+
+However, with the introduction of virtual functions, the linkage becomes dynamic. This dynamic linkage is crucial when a single pointer of the base class type needs to refer to objects of different derived classes. The virtual function allows the correct derived class function to be called based on the actual type of the object being pointed to.
+
+For instance, in the example above, a Shape pointer can point to either a Circle or a Rectangle. Without virtual functions, calling calculateArea() through the pointer would always invoke the Shape class's version. But with virtual functions, the correct derived class version is determined at runtime based on the actual object type.
+
+Rules of Virtual Functions:
+    1- Virtual functions must belong to a class hierarchy (base and derived classes).
+    2- Virtual functions cannot be static members.
+    3- They are accessed through pointers or references to base class types.
+    4- A virtual function must be defined in the base class, even if it provides a default implementation.
+    5- The virtual function's prototype in the base class and all derived classes must be identical.
+    6- Virtual functions can be declared as friends of other classes.
+    7- Virtual constructors do not exist, but virtual destructors are allowed to ensure proper cleanup in       derived classes.
+
+In conclusion, C++ virtual functions facilitate polymorphism by enabling the selection of the appropriate function implementation at runtime based on the object's actual type, enhancing the flexibility and extensibility of object-oriented programming.
