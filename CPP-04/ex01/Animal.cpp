@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:40:06 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/05 03:09:44 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/06 01:02:51 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ Animal & Animal::operator=(Animal const & rhs)
 Animal::~Animal(){ std::cout << "{Animal} Destructor called" << std::endl; }
 
 //------------------ Getter && Setter ------------------//
-std::string Animal::getType() const{ return (this->_type); }
+std::string Animal::getType() const{ return (this->type_); }
 
-void Animal::setType(std::string type){ this->_type = type; }
+void Animal::setType(std::string type){ this->type_ = type; }
 
 //------------------ Member function ------------------//
 

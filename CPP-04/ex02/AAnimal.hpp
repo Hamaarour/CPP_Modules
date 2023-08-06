@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:22:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/05 18:47:39 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/06 02:04:35 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 #include <iostream>
 #include <string>
 
-class Animal{
+class AAnimal{
 protected:
-    std::string _type;
+    std::string type_;
 public:
     //------------------ Constructors ------------------//
-    Animal();
-    Animal(Animal const & rhs);
+    AAnimal();
+    AAnimal(AAnimal const & rhs);
     //------------------ Overloader ------------------//
-    Animal & operator=(Animal const & rhs);
+    AAnimal & operator=(AAnimal const & rhs);
     //------------------ Destructor ------------------//
-    virtual ~Animal();
+    virtual ~AAnimal();
     //------------------ Getter && Setter ------------------//
     std::string getType() const;
     void setType(std::string type);

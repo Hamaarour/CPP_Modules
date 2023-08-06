@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:22:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/05 18:47:39 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/06 00:07:24 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Animal{
 protected:
-    std::string _type;
+    std::string type_;
 public:
     //------------------ Constructors ------------------//
     Animal();

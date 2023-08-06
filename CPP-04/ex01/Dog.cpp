@@ -6,21 +6,23 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 14:07:45 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/05 02:25:11 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/06 01:03:09 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog()
 {
     setType("Dog");
-    std::cout << this->_type << " Default Constructor called" << std::endl;
+    std::cout << this->type_ << " Default Constructor called" << std::endl;
+    this->brain_ = new Brain();
 }
 
 Dog::Dog(Dog const &src)
 {
-    std::cout << this->_type << " Copy constructor called" << std::endl;
+    std::cout << this->type_ << " Copy constructor called" << std::endl;
     *this = src;
 }
 
@@ -28,7 +30,10 @@ Dog & Dog::operator=(Dog const &rhs)
 {
     std::cout << " Assignation operator called" << std::endl;
     if (this != &rhs)
-        this->_type = rhs._type;
+    {
+        this->type_ = rhs.type_;
+        this->brain_ = new Brain(*rhs.brain_);
+    }
     return (*this);
 }
 
@@ -39,5 +44,6 @@ void Dog::makeSound(void) const
 
 Dog::~Dog()
 {
-    std::cout << this->_type << " Destructor called" << std::endl;
+    std::cout << this->type_ << " Destructor called" << std::endl;
+    delete this->brain_;
 }

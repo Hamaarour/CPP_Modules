@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/03 16:22:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/05 18:47:39 by hamaarou         ###   ########.fr       */
+/*   Created: 2023/08/05 18:50:17 by hamaarou          #+#    #+#             */
+/*   Updated: 2023/08/05 18:50:19 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
-#include <iostream>
-#include <string>
+# include <iostream>
+# include <string>
 
-class Animal{
+class WrongAnimal{
 protected:
     std::string _type;
 public:
     //------------------ Constructors ------------------//
-    Animal();
-    Animal(Animal const & rhs);
+    WrongAnimal();
+    WrongAnimal(WrongAnimal const & rhs);
     //------------------ Overloader ------------------//
-    Animal & operator=(Animal const & rhs);
+    WrongAnimal & operator=(WrongAnimal const & rhs);
     //------------------ Destructor ------------------//
-    virtual ~Animal();
+    ~WrongAnimal();
     //------------------ Getter && Setter ------------------//
     std::string getType() const;
     void setType(std::string type);
     //------------------ Member function ------------------//
-    virtual void makeSound() const;
+    void makeSound() const;
 };
 #endif
