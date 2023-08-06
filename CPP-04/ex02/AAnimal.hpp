@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:22:21 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 02:04:35 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/06 16:12:44 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ public:
     std::string getType() const;
     void setType(std::string type);
     //------------------ Member function ------------------//
-    virtual void makeSound() const;
+    virtual void makeSound() const = 0;
 };
 #endif
