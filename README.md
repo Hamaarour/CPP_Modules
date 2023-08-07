@@ -544,3 +544,21 @@ Rules of Virtual Functions:
     7- Virtual constructors do not exist, but virtual destructors are allowed to ensure proper cleanup in       derived classes.
 
 In conclusion, C++ virtual functions facilitate polymorphism by enabling the selection of the appropriate function implementation at runtime based on the object's actual type, enhancing the flexibility and extensibility of object-oriented programming.
+
+
+## Virtual Destructor in C++.
+
+Virtual Destructor in C++ is used to release or free the memory used by the child class (derived class) object when the child class object is removed from the memory using the parent class's pointer object.
+
+Virtual destructors maintain the hierarchy of calling destructors from child class to parent class as the virtual keyword used in the destructor follows the concept of late binding or the run-time binding.
+
+The destructor of the parent class uses a virtual keyword before its name and makes itself a virtual destructor to ensure that the destructor of both the parent class and child class should be called at the run time. The derived class's destructor is called first, and then the parent class or base class releases the memory occupied by both destructors.
+
+## Why We Use Virtual Destructor in C++?
+
+As we know, a destructor is implicitly invoked when an object of a class goes out of scope or the object's scope ends to free up the memory occupied by that object.
+
+Due to early binding, when the object pointer of the parent class is deleted, which was pointing to the object of the derived class then, only the destructor of the parent class is invoked; it does not invoke the destructor of the child class, which leads to the problem of memory leak in our program.
+
+So, When we use a Virtual destructor, i.e., a virtual keyword preceded by a tilde(~) sign and destructor name, inside the parent class, it ensures that first the child class's destructor should be invoked. And then, the destructor of the parent class is called so that it releases the memory occupied by both destructors.
+
