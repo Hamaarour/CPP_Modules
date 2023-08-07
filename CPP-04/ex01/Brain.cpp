@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:38:18 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 00:39:39 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 03:40:08 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,21 @@
 Brain::Brain()
 {
     std::cout << "Brain Default Constructor called" << std::endl;
+    for (int i = 0; i < 100; i++)
+        this->_ideas[i] = "Me";
 }
 
 Brain::Brain(Brain const &src)
 {
     std::cout << "Brain Copy constructor called" << std::endl;
     *this = src;
+}
+
+Brain::Brain(std::string type)
+{
+    std::cout << "Brain Parametric Constructor called" << std::endl;
+    for( int i = 0; i < 100; i++)
+        this->_ideas[i] = type;
 }
 
 Brain & Brain::operator=(Brain const &rhs)

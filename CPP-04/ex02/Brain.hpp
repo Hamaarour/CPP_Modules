@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 00:00:15 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 00:04:48 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 03:00:32 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Brain
     public:
         Brain();
         Brain(Brain const &src);
+        Brain(std::string type);
         Brain & operator=(Brain const &rhs);
         ~Brain();
 };

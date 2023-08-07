@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:32:14 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 02:05:21 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/06 23:59:53 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include "AAnimal.hpp"
 # include "Brain.hpp"
 
-class Cat: public Animal{
+class Cat: public AAnimal{
 private:
     Brain *brain_;
 public:

@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/03 16:32:16 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 02:05:25 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 03:34:56 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AAnimal.hpp"
 # include "Brain.hpp"
-class Dog : public Animal{
+class Dog : public AAnimal{
 private:
     Brain *brain_;
 public:
@@ -23,6 +23,7 @@ public:
     Dog(Dog const &src);
     Dog & operator=(Dog const &rhs);
     ~Dog();
+    
     void makeSound(void) const;
     
 };

@@ -2,7 +2,7 @@ NAME=Animal
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 RM=rm -rf
-FILES=main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp #WrongAnimal.cpp WrongCat.cpp
+FILES=main.cpp AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp #WrongAnimal.cpp WrongCat.cpp
 OBJ=$(FILES:.cpp=.o)
 
 all: $(NAME)

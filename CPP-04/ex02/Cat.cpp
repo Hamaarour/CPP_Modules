@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 13:36:41 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 01:01:59 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 02:43:39 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Cat::Cat()
 Cat::Cat(const Cat &src)
 {
     std::cout << this->type_ << " Copy constructor called" << std::endl;
+    this->brain_ = NULL;
     *this = src;
 }
 
@@ -33,6 +34,7 @@ Cat &  Cat::operator=(Cat const &rhs)
     {
         this->type_ = rhs.type_;
         this->brain_ = new Brain(*rhs.brain_);
+        
     }
     return (*this);
 }

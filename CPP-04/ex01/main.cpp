@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 15:59:39 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/06 01:01:27 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 03:49:36 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@
 
 int main()
 {
-    Animal *animals[10];
-    
-    for (int i = 0; i < 10; i++)
+    const Animal* d = new Dog();
+    const Animal* c = new Cat();
+
+    delete d;
+    delete c;
+
+    Dog basic;
     {
-        if (i % 2 == 0)
-            animals[i] = new Dog();
-        else
-            animals[i] = new Cat();
-    }
-    std::cout << "-------------------------------------" << std::endl;
-    for (int i = 0; i < 10; i++)
-    {
-        delete animals[i];
+        Dog tmp = basic;
     }
 
-    std::cout << "-------------------------------------" << std::endl;
+    const Animal* animals[6] = { new Dog(), new Dog(), new Cat(), new Cat(), new Dog(), new Cat() };
+    for ( int i = 0; i < 6; i++ ) {
+        delete animals[i];
+    }
     return 0;
 }

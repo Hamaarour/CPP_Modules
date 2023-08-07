@@ -40,7 +40,3 @@ AAnimal::~AAnimal(){ std::cout << "{AAnimal} Destructor called" << std::endl; }
 std::string AAnimal::getType() const{ return (this->type_); }
 
 void AAnimal::setType(std::string type){ this->type_ = type; }
-
-//------------------ Member function ------------------//
-
-void AAnimal::makeSound() const{ std::cout << "Animal makeSound" << std::endl; }
