@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 14:07:45 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/07 02:43:43 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:04:52 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Dog & Dog::operator=(Dog const &rhs)
     if (this != &rhs)
     {
         this->type_ = rhs.type_;
+        delete brain_;
         this->brain_ = new Brain(*rhs.brain_);
     }
     return (*this);

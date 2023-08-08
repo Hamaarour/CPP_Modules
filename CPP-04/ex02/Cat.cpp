@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/04 13:36:41 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/08/07 02:43:39 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:04:48 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Cat &  Cat::operator=(Cat const &rhs)
     if (this != &rhs)
     {
         this->type_ = rhs.type_;
+        delete brain_;
         this->brain_ = new Brain(*rhs.brain_);
         
     }

@@ -8,7 +8,7 @@
 
 #include <iostream>
 
-/*class ShallowCopye {
+class ShallowCopye {
 public:
     int* data;
 
@@ -34,34 +34,34 @@ int main() {
 
     return 0;
 }
-*/
-class DeepCopyExample {
-public:
-    int* data;
 
-    DeepCopyExample(int value) {
-        data = new int(value);
-    }
+// class DeepCopyExample {
+// public:
+//     int* data;
 
-    // Deep copy constructor
-    DeepCopyExample(const DeepCopyExample& other) {
-        data = new int(*other.data);
-    }
+//     DeepCopyExample(int value) {
+//         data = new int(value);
+//     }
 
-    // Destructor to release the dynamically allocated memory
-    ~DeepCopyExample() {
-        delete data;
-    }
-};
+//     // Deep copy constructor
+//     DeepCopyExample(const DeepCopyExample& other) {
+//         data = new int(*other.data);
+//     }
 
-int main() {
-    DeepCopyExample original(42);
-    DeepCopyExample deepCopy = original; // Deep copy
+//     // Destructor to release the dynamically allocated memory
+//     ~DeepCopyExample() {
+//         delete data;
+//     }
+// };
 
-    *deepCopy.data = 100;
+// int main() {
+//     DeepCopyExample original(42);
+//     DeepCopyExample deepCopy = original; // Deep copy
 
-    std::cout << *original.data << std::endl; // Output: 42
-    std::cout << *deepCopy.data << std::endl; // Output: 100
+//     *deepCopy.data = 100;
 
-    return 0;
-}
+//     std::cout << *original.data << std::endl; // Output: 42
+//     std::cout << *deepCopy.data << std::endl; // Output: 100
+
+//     return 0;
+// }
