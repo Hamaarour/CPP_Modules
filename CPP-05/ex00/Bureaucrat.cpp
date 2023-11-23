@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:19:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/23 11:44:02 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:38:57 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ std::string Bureaucrat::getName() const { return (this->_name); };
 int Bureaucrat::getGrade() const { return (this->_grade); };
 
 // ------------------ Member function ------------------ //
-
 void Bureaucrat::incrementGrade()
 {
 	if (this->_grade - 1 < 1)
