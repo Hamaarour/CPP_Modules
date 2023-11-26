@@ -6,14 +6,14 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:19:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/23 17:38:57 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/11/25 15:03:13 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 // ------------------ Constructors ------------------ //
-Bureaucrat::Bureaucrat() : _name("Empty"), _grade(150){
+Bureaucrat::Bureaucrat(){
 	std::cout << "{Bureaucrat} Default Constructor called" << std::endl;
 };
 
