@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:03:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/23 12:07:29 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:59:28 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,18 +40,12 @@ public:
 	class GradeTooHighException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return ("Grade too high");
-			}
+			virtual const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception
 	{
 		public:
-			virtual const char* what() const throw()
-			{
-				return "Grade too low";
-			}
+			virtual const char* what() const throw();
 	};
 };
 // ------------------ operator << ------------------ //

@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:03:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/28 17:00:31 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/11/28 16:08:43 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ public:
 	{
 		public:
 			virtual const char* what() const throw();
+	};
 	class GradeTooLowException : public std::exception
 	{
 		public:

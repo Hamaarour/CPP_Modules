@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:19:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/25 15:03:13 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/11/28 17:00:47 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,16 @@ void Bureaucrat::decrementGrade()
 		throw Bureaucrat::GradeTooLowException();
 	else
 		this->_grade++;
+};
+
+const char *Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return ("Grade too high");
+};
+
+const char *Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return ("Grade too low");
 };
 
 //-------------------- operator << ---------------------//
