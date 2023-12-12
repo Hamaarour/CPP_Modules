@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:43:23 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/12/12 18:45:34 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/12/12 19:51:34 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ private:
 public:
 	Intern();
 	Intern(Intern const &src);
+
 	~Intern();
 	Intern &operator=(Intern const &rhs);
 	AForm *makeForm(std::string name, std::string target);
