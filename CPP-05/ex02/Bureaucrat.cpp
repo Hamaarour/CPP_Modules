@@ -6,19 +6,20 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:19:35 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/28 16:09:08 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/12/14 16:22:38 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
+#include "AForm.hpp"
 // ------------------ Constructors ------------------ //
-Bureaucrat::Bureaucrat(){
+Bureaucrat::Bureaucrat()
+{
 	std::cout << "{Bureaucrat} Default Constructor called" << std::endl;
 };
 
 //------------------ parameterized Constructors ------------------//
-Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name)
 {
 	std::cout << "{Bureaucrat} Parameterized Constructor called" << std::endl;
 	if (grade < 1)
@@ -29,7 +30,7 @@ Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name)
 		this->_grade = grade;
 };
 // ------------------ copy Constructor ------------------ //
-Bureaucrat::Bureaucrat(Bureaucrat const & rhs) : _name(rhs._name)
+Bureaucrat::Bureaucrat(Bureaucrat const &rhs) : _name(rhs._name)
 {
 	std::cout << "{Bureaucrat} Copy Constructor called" << std::endl;
 	*this = rhs;
@@ -43,11 +44,52 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat const &rhs)
 	return (*this);
 };
 // ------------------ Destructor ------------------ //
-Bureaucrat::~Bureaucrat(){ std::cout << "{Bureaucrat} Destructor called" << std::endl; };
+Bureaucrat::~Bureaucrat() { std::cout << "{Bureaucrat} Destructor called" << std::endl; };
 
 // ------------------ Getter ------------------ //
 std::string Bureaucrat::getName() const { return (this->_name); };
 int Bureaucrat::getGrade() const { return (this->_grade); };
+
+/*\
+void	Bureaucrat::signForm(AForm &a)
+{
+if (a.beSigned(*this))
+	std::cout << _name << " signed " << a.getname() << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const &a)
+{
+if (a.execute(*this))
+	std::cout << _name << " executed " << a.getname() << std::endl;
+}
+*/
+void Bureaucrat::signForm(AForm &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		if (form.getSigned())
+			std::cout << _name << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << _name << " couldn't sign " << form.getName() << " because " << e.what() << "." << std::endl;
+	}
+};
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+
+		form.execute(*this);
+		std::cout << _name << " executes " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cerr << _name << " couldn't execute " << form.getName() << " because " << e.what() << "." << std::endl;
+	}
+};
 
 // ------------------ Member function ------------------ //
 void Bureaucrat::incrementGrade()
