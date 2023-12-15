@@ -6,45 +6,41 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 18:01:04 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/12/12 18:35:58 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:16:06 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
-
-PresidentialPardonForm::PresidentialPardonForm():
-	Form("PresidentialPardonForm", 25, 5), _target("default")
+#include <string>
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("default")
 {
-	return ;
+	return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) :
-	Form("PresidentialPardonForm", 25, 5), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-	return ;
+	return;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & src) :
-	Form(src), _target(src._target)
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &src) : AForm(src), _target(src._target)
 {
-	return ;
+	return;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void)
 {
-	return ;
+	return;
 }
 
-PresidentialPardonForm & PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs)
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &rhs)
 {
-	Form::operator=(rhs);
+	AForm::operator=(rhs);
 	return (*this);
 }
 
-
-void PresidentialPardonForm::execute(Bureaucrat const & executor) const
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
 	if (!getSigned() || (executor.getGrade() > getGradeToExecute()))
-		throw (GradeTooLowException());
+		throw(GradeTooLowException());
 	std::cout << this->_target << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

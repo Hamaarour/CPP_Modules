@@ -6,7 +6,7 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:03:58 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/11/28 16:59:28 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:25:45 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ public:
 		public:
 			virtual const char* what() const throw();
 	};
+    void signForm(Form &form);
 };
 // ------------------ operator << ------------------ //
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & rhs);

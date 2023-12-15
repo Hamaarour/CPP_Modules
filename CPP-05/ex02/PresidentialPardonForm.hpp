@@ -6,13 +6,15 @@
 /*   By: hamaarou <hamaarou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 16:01:09 by hamaarou          #+#    #+#             */
-/*   Updated: 2023/12/12 18:34:56 by hamaarou         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:14:11 by hamaarou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
+#include <string>
+#include "AForm.hpp"
 class PresidentialPardonForm : public AForm
 {
 private:
